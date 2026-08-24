@@ -3,6 +3,11 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+
+if (typeof globalThis !== 'undefined' && !globalThis._toString) {
+  globalThis._toString = (value: unknown) => Object.prototype.toString.call(value);
+}
+
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
