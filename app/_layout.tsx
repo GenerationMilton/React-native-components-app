@@ -46,7 +46,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ backgroundColor: backgroundColor, flex: 1 }}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemedView margin>
-          <ThemedText
+          <ThemedText className='mt-20'
           >Hola Mundo</ThemedText>
         </ThemedView>
 

@@ -36,7 +36,7 @@ const ThemedText = ({
                 className,
             ].join(' ')}
             {...rest}
-        >ThemedText</Text>
+        />
 
     )
 }
