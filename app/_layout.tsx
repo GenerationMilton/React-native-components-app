@@ -18,6 +18,7 @@ import '../global.css';
 import { Text, View } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import ThemedView from '@/presentation/shared/ThemedView';
+import ThemedText from '@/presentation/shared/ThemedText';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -45,7 +46,8 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ backgroundColor: backgroundColor, flex: 1 }}>
       <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
         <ThemedView margin>
-          <Text className='mt-10 text-3xl text-light-text dark:text-dark-text'>Hola Mundo</Text>
+          <ThemedText
+          >Hola Mundo</ThemedText>
         </ThemedView>
 
 
