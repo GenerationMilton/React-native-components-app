@@ -1,6 +1,6 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
-import { Href, Link } from 'expo-router'
+
 import { animationMenuRoutes, menuRoutes, uiMenuRoutes } from '@/constants/Routes'
 import ThemedView from '@/presentation/shared/ThemedView'
 import MenuItem from '@/presentation/menu/MenuItem'
