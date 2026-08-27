@@ -33,7 +33,7 @@ const ComponentsApp
                             icon={route.icon}
                             name={route.name}
                             isFirst={index == 0}
-                            isLast={index == animationMenuRoutes.length - 1}
+                            isLast={index == uiMenuRoutes.length - 1}
 
                         />
                     ))
