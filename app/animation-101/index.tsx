@@ -1,19 +1,55 @@
 import ThemedButton from '@/presentation/shared/ThemedButton';
 import ThemedView from '@/presentation/shared/ThemedView';
-import React from 'react';
+import React, { useRef } from 'react';
+import { Animated, View } from 'react-native';
 
 
 const Animation101Screen = () => {
-  return (
-    <ThemedView margin>
 
-      <ThemedButton className='mb-5'
-        onPress={() => console.log('fadeIn')}
+  const animatedOpacity = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    Animated.timing(animatedOpacity, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true
+    }).start();
+  }
+
+  const fadeOut = () => {
+    Animated.timing(animatedOpacity, {
+      toValue: 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  }
+
+  return (
+    <ThemedView margin className='justify-center items-center flex-1'>
+      <Animated.View
+        className='bg-light-secondary dark:bg-dark-secondary rounded-xl'
+        style={{
+          width: 150,
+          height: 150,
+          opacity: animatedOpacity,
+          marginBottom: 24,
+        }}
+      />
+
+      <ThemedButton
+        className='my-5'
+        style={{ marginVertical: 20 }}
+        onPress={fadeIn}
       >
-        FadeIn</ThemedButton>
-      <ThemedButton className='mb-5'
-        onPress={() => console.log('fadeOut')}
-      >FadeOut</ThemedButton>
+        FadeIn
+      </ThemedButton>
+      <ThemedButton
+        className='my-5'
+        style={{ marginVertical: 20 }}
+        onPress={fadeOut}
+      >
+        FadeOut
+      </ThemedButton>
     </ThemedView>
   );
 };
