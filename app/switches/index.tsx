@@ -32,9 +32,22 @@ const Switches = () => {
           text='Activo'
           value={state.isActive}
           onValueChange={(value) => setState({ ...state, isActive: true })}
-          className='mb-2'
+          className='mb-4'
         />
 
+        <ThemedSwitch
+          text='Hambriento'
+          value={state.isHungry}
+          onValueChange={(value) => setState({ ...state, isActive: true })}
+          className='mb-4'
+        />
+
+        <ThemedSwitch
+          text='Contento'
+          value={state.isHappy}
+          onValueChange={(value) => setState({ ...state, isActive: true })}
+          className='mb-4'
+        />
       </ThemedCard>
 
 
