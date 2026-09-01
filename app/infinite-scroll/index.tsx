@@ -1,4 +1,5 @@
 import { useThemeColor } from '@/hooks/useThemeColor';
+import FadeInImage from '@/presentation/images/FadeInImage';
 import ThemedText from '@/presentation/shared/ThemedText';
 import ThemedView from '@/presentation/shared/ThemedView';
 import { useState } from 'react';
@@ -54,14 +55,21 @@ interface ListItemProps {
 const ListItem = ({ number }: ListItemProps) => {
 
   return (
-    <Image
-      source={{ uri: `https://picsum.photos/id/${number}/500/400` }}
-      style={
-        {
-          height: 400,
-          width: '100%',
-        }
-      }
+    <FadeInImage
+      uri={`https://picsum.photos/id/${number}/500/400`}
+      style={{
+        height: 400,
+        width: '100%'
+      }}
     />
+    // <Image
+    //   source={{ uri: `https://picsum.photos/id/${number}/500/400` }}
+    //   style={
+    //     {
+    //       height: 400,
+    //       width: '100%',
+    //     }
+    //   }
+    // />
   )
 }
