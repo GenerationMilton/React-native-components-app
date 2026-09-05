@@ -5,20 +5,26 @@ import { useState } from 'react';
 
 // import { useColorScheme } from 'react-native';
 import { useColorScheme } from 'nativewind';
+import { useThemeChangerContext } from '@/presentation/context/ThemeChangerContext';
 
 
 const ThemesScreen = () => {
+  // const { colorScheme, setColorScheme } = useColorScheme();
 
-  const { colorScheme, setColorScheme } = useColorScheme();
+  // Theme from context
+  const { toggleTheme, currentTheme, setSystemTheme, isSystemTheme } = useThemeChangerContext();
+
+
 
   const [darkModeSettings, setDarkModeSettings] = useState({
-    darkMode: colorScheme === 'dark',
-    systemMode: false,
+    darkMode: currentTheme === 'dark',
+    systemMode: isSystemTheme,
   })
 
   const setDarkMode = (value: boolean) => {
 
-    setColorScheme(value ? 'dark' : 'light')
+    // setColorScheme(value ? 'dark' : 'light');
+    toggleTheme();
 
     setDarkModeSettings({
       darkMode: value,
@@ -27,11 +33,18 @@ const ThemesScreen = () => {
   }
 
   const setSystemMode = (value: boolean) => {
+
+    if (value) {
+      setSystemTheme();
+    }
+
     setDarkModeSettings({
       darkMode: darkModeSettings.darkMode,
-      systemMode: value,
+      systemMode: true,
 
-    })
+    });
+
+
   }
 
   return (
