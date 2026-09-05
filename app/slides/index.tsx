@@ -35,14 +35,20 @@ const SlidesScreen = () => {
 
   const flatListRef = useRef<FlatList>(null);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isScrollEnabled, setIsScrollEnabled] = useState(false);
 
 
   const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    if (isScrollEnabled) { return; }
+
     const { contentOffset, layoutMeasurement } = event.nativeEvent;
     const currentIndex = Math.floor(contentOffset.x / layoutMeasurement.width)
 
     setCurrentSlideIndex(currentIndex > 0 ? currentIndex : 0);
 
+    if (currentIndex === items.length - 1) {
+      setIsScrollEnabled(true);
+    }
 
   }
 
@@ -64,7 +70,7 @@ const SlidesScreen = () => {
         renderItem={({ item }) => <SlideItem item={item} />}
         horizontal
         pagingEnabled
-        scrollEnabled={false}
+        scrollEnabled={isScrollEnabled}
         onScroll={onScroll}
 
       />
